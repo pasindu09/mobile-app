@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './index.css'
+import Login from './Login.jsx';
 import fort1 from './assets/fort.jpg'
 import fort2 from './assets/fort2.jpg'
 import fort3 from './assets/fort3.jpg'
@@ -13,7 +14,11 @@ import fort9 from './assets/fort9.jpg'
 
 function App() {
 
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
+  const toggleNavbar = () => {
+    setIsNavbarOpen(!isNavbarOpen);
+  };
   return (
     <div className="px-6 bg-[#202425]">
 
@@ -23,23 +28,38 @@ function App() {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="" className="flex items-center">
             <span
-              className="text-white self-center text-2xl font-semibold whitespace-nowrap dark:text-white">GamerHub404</span>
+              className="text-white self-center text-4xl font-semibold whitespace-nowrap dark:text-white">GAMER HUB 404</span>
           </a>
           <div className="flex md:order-2">
-            <button type="button"
+            <button onClick={Login} type="button"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign Up</button>
                <button type="button"
               className="ml-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Log In</button>
-            <button data-collapse-toggle="navbar-sticky" type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="navbar-sticky" aria-expanded="false">
-              <span className="sr-only">Open main menu</span>
-               <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 17 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
-              </svg> 
-            </button>
+           <button
+  data-collapse-toggle="navbar-sticky"
+  type="button"
+  onClick={toggleNavbar} // Add this onClick event handler
+  className={`inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 ${isNavbarOpen ? 'active' : ''}`}
+  aria-controls="navbar-sticky"
+  aria-expanded={isNavbarOpen}
+>
+  <span className="sr-only">Open main menu</span>
+  <svg
+    className="w-5 h-5"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 17 14"
+  >
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M1 1h15M1 7h15M1 13h15"
+    />
+  </svg>
+</button>
           </div>
           <div className="items-center justify-between hidden w-full md:flex md:w-auto"
             id="navbar-sticky">
@@ -56,11 +76,11 @@ function App() {
               </li>
               <li>
                 <a href="#"
-                  className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+                  className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Profile</a>
               </li>
               <li>
                 <a href="#"
-                  className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                  className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About Us</a>
               </li>
             </ul>
           </div>
@@ -84,14 +104,14 @@ function App() {
           <h1 className="text-white text-3xl font-semibold mb-6 mt-6">News Archive</h1>
           <div className="lg:flex gap-4 mb-4 border h-96 w-full md:w-full p-4" style={{ backgroundImage: `url(${fort9})` }}>
             <div className="lg:flex flex-col justify-center items-start lg:w-1/2">
-              <p className="text-white text-2xl mb-4 font-semibold">
-                Greeting Gamers ...
-              </p>
+              <h1 className="text-black font-extrabold text-4xl mb-4 font-semibold">
+                WELCOME
+              </h1>
               <p className="text-white mb-4">
                 Welcome to the gamehub404, a place where you can find all the games you want to play. We have a wide variety of games to choose from. You can also join our groups and play with your friends.
               </p>
               <button className="bg-transparent text-orange-500 font-semibold text-lg">
-                View More
+                View More..
               </button>
             </div>
           </div>
